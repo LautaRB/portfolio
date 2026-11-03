@@ -1,16 +1,154 @@
 ---
+import "../styles/global.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Lautaro | Bento Portfolio</title>
+  </head>
+  <body class="bg-stone-900 text-stone-100 font-sans min-h-screen flex items-center justify-center p-4 md:p-10">
+    
+    <!-- BANDEJA EXTERIOR DEL BENTO (Marco de madera oscura / laca) -->
+    <main class="bg-stone-950 p-6 rounded-3xl border-8 border-stone-800 shadow-2xl max-w-4xl w-full">
+      
+      <header class="mb-6 flex justify-between items-center px-2">
+        <span class="text-xs uppercase tracking-widest text-stone-400">Menú de Desarrollador • Selección 2026</span>
+        <button id="toggle-all" class="text-xs bg-stone-800 hover:bg-stone-700 text-stone-300 px-3 py-1.5 rounded-full transition">
+          Destapar todas 🥢
+        </button>
+      </header>
+
+      <!-- GRILLA DE COMPARTIMENTOS -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-55">
+
+        <!-- CAJA 1: SOBRE MÍ (Ocupa 2 columnas) -->
+        <div class="bento-item relative md:col-span-2 rounded-2xl overflow-hidden bg-stone-900 border-4 border-stone-800 cursor-pointer group">
+          <!-- TAPA (Rojo Bermellón / Salmón) -->
+          <div class="bento-lid absolute inset-0 bg-rose-600 flex flex-col items-center justify-center z-10 transition-transform duration-500 ease-in-out">
+            <!-- Banda elástica simulada -->
+            <div class="w-full h-6 bg-stone-900/30 absolute top-1/2 -translate-y-1/2"></div>
+            <span class="relative z-20 bg-rose-700 px-5 py-2 rounded-lg font-bold text-xl tracking-wide shadow-md border border-rose-400/30 group-hover:scale-105 transition-transform">
+              👋 Sobre Mí
+            </span>
+            <span class="absolute bottom-3 text-xs text-rose-200 opacity-75">Click para destapar</span>
+          </div>
+
+          <!-- CONTENIDO INTERNO -->
+          <div class="p-6 h-full flex flex-col justify-between">
+            <div>
+              <h1 class="text-2xl font-bold text-rose-400">Hola, soy Lautaro 🇦🇷</h1>
+              <p class="text-stone-300 mt-2 text-sm leading-relaxed">
+                Desarrollador de Software & Especialista en Infraestructura TI. Me muevo entre el código Full-Stack, el diseño de redes corporativas y la administración de servidores.
+              </p>
+            </div>
+            <span class="text-xs text-stone-500">Click para volver a tapar</span>
+          </div>
+        </div>
+
+        <!-- CAJA 2: STACK TÉCNICO (1 columna) -->
+        <div class="bento-item relative rounded-2xl overflow-hidden bg-stone-900 border-4 border-stone-800 cursor-pointer group">
+          <!-- TAPA (Verde Matcha) -->
+          <div class="bento-lid absolute inset-0 bg-emerald-600 flex flex-col items-center justify-center z-10 transition-transform duration-500 ease-in-out">
+            <div class="h-full w-6 bg-stone-900/30 absolute left-1/2 -translate-x-1/2"></div>
+            <span class="relative z-20 bg-emerald-700 px-5 py-2 rounded-lg font-bold text-xl tracking-wide shadow-md border border-emerald-400/30 group-hover:scale-105 transition-transform">
+              🛠️ Stack
+            </span>
+			<span class="absolute bottom-3 text-xs text-emerald-200 opacity-75">Click para destapar</span>
+          </div>
+
+        <!-- CONTENIDO INTERNO -->
+			<div class="p-6 h-full flex flex-col gap-2 text-sm">
+				<p><strong class="text-emerald-400">Front:</strong> React, Astro, Tailwind, TS</p>
+				<p><strong class="text-emerald-400">Back:</strong> Node, Express, Java, Spring</p>
+				<p><strong class="text-emerald-400">Infra:</strong> Redes, VLANs, Linux, MySQL</p>
+				
+				<span class="text-xs text-stone-500 mt-auto">Click para volver a tapar</span>
+			</div>
+        </div>
+
+        <!-- CAJA 3: PROYECTOS DE GITHUB (2 columnas) -->
+        <div class="bento-item relative md:col-span-2 rounded-2xl overflow-hidden bg-stone-900 border-4 border-stone-800 cursor-pointer group">
+          <!-- TAPA (Amarillo Tamago / Mostaza) -->
+          <div class="bento-lid absolute inset-0 bg-amber-500 text-stone-950 flex flex-col items-center justify-center z-10 transition-transform duration-500 ease-in-out">
+            <div class="w-full h-6 bg-stone-900/20 absolute top-1/2 -translate-y-1/2"></div>
+            <span class="relative z-20 bg-amber-400 px-5 py-2 rounded-lg font-bold text-xl tracking-wide shadow-md border border-amber-200 group-hover:scale-105 transition-transform">
+              🍱 Proyectos (GitHub Live)
+            </span>
+			<span class="absolute bottom-3 text-xs text-amber-200 opacity-75">Click para destapar</span>
+          </div>
+
+          <!-- CONTENIDO INTERNO -->
+          <div class="p-6 h-full flex flex-col justify-center">
+            <h3 class="font-bold text-amber-400 mb-2">Últimos repositorios activos</h3>
+            <p class="text-sm text-stone-400">
+              GITHUB API
+            </p>
+			<div class="mt-auto flex">
+				<span class="text-xs text-stone-500">Click para volver a taparr</span>
+			</div>
+          </div>
+        </div>
+
+        <!-- CAJA 4: CONTACTO (1 columna) -->
+        <div class="bento-item relative rounded-2xl overflow-hidden bg-stone-900 border-4 border-stone-800 cursor-pointer group">
+          <!-- TAPA (Azul Nori / Índigo) -->
+          <div class="bento-lid absolute inset-0 bg-indigo-600 flex flex-col items-center justify-center z-10 transition-transform duration-500 ease-in-out">
+            <div class="h-full w-6 bg-stone-900/30 absolute left-1/2 -translate-x-1/2"></div>
+            <span class="relative z-20 bg-indigo-700 px-5 py-2 rounded-lg font-bold text-xl tracking-wide shadow-md border border-indigo-400/30 group-hover:scale-105 transition-transform">
+              🔗 Contacto
+            </span>
+			<span class="absolute bottom-3 text-xs text-indigo-200 opacity-75">Click para destapar</span>
+          </div>
+
+          <!-- CONTENIDO INTERNO -->
+          <div class="p-6 h-full flex flex-col justify-center items-center gap-3">
+            <a href="mailto:lautanba@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
+              Mandar Email
+            </a>
+            <a href="https://github.com/" target="_blank" class="bg-stone-800 hover:bg-stone-700 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
+              Ver GitHub
+            </a>
+			<a href="#" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
+              CV
+            </a>
+			<span class="text-xs text-stone-500 mt-auto">Click para volver a tapar</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- LÓGICA PARA DESTAPAR LAS CAJAS -->
+    <script>
+      const boxes = document.querySelectorAll('.bento-item');
+      const toggleAllBtn = document.getElementById('toggle-all');
+      let allOpen = false;
+
+      boxes.forEach((box) => {
+        box.addEventListener('click', (e) => {
+          // Evita que la caja se cierre si hacés click en un link adentro
+          if ((e.target as HTMLElement).tagName === 'A') return;
+          
+          const lid = box.querySelector('.bento-lid');
+          lid?.classList.toggle('-translate-y-full');
+        });
+      });
+
+      toggleAllBtn?.addEventListener('click', () => {
+        allOpen = !allOpen;
+        boxes.forEach((box) => {
+          const lid = box.querySelector('.bento-lid');
+          if (allOpen) {
+            lid?.classList.add('-translate-y-full');
+          } else {
+            lid?.classList.remove('-translate-y-full');
+          }
+        });
+        toggleAllBtn.textContent = allOpen ? 'Tapar todas 🍱' : 'Destapar todas 🥢';
+      });
+    </script>
+
+  </body>
 </html>
