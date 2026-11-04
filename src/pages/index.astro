@@ -1,5 +1,11 @@
 ---
 import "../styles/global.css";
+
+const stackBento = [
+  { id: "front", nombre: "Front", icons: "ts,react,astro,tailwind" },
+  { id: "back", nombre: "Back", icons: "c,java,spring,js,nodejs,express,python,django" },
+  { id: "infra", nombre: "Infra & DB", icons: "mysql,mongodb,git,github,docker,androidstudio" }
+];
 ---
 
 <html lang="es">
@@ -38,9 +44,9 @@ import "../styles/global.css";
           <!-- CONTENIDO INTERNO -->
           <div class="p-6 h-full flex flex-col justify-between">
             <div>
-              <h1 class="text-2xl font-bold text-rose-400">Hola, soy Lautaro 🇦🇷</h1>
+              <h1 class="text-2xl font-bold text-rose-400">Hola! Soy Lautaro Rodriguez Brown</h1>
               <p class="text-stone-300 mt-2 text-sm leading-relaxed">
-                Desarrollador de Software & Especialista en Infraestructura TI. Me muevo entre el código Full-Stack, el diseño de redes corporativas y la administración de servidores.
+                Perfil híbrido entre software e infraestructura. Me encargo desde el frontend y las APIs hasta la segmentación de redes, servidores y despliegues. Me gusta aprender y aplicar nuevas tecnologías, y siempre busco optimizar procesos y mejorar la experiencia del usuario.
               </p>
             </div>
             <span class="text-xs text-stone-500">Click para volver a tapar</span>
@@ -50,22 +56,39 @@ import "../styles/global.css";
         <!-- CAJA 2: STACK TÉCNICO (1 columna) -->
         <div class="bento-item relative rounded-2xl overflow-hidden bg-stone-900 border-4 border-stone-800 cursor-pointer group">
           <!-- TAPA (Verde Matcha) -->
-          <div class="bento-lid absolute inset-0 bg-emerald-600 flex flex-col items-center justify-center z-10 transition-transform duration-500 ease-in-out">
+          <div class="bento-lid absolute inset-0 bg-emerald-600 flex flex-col items-center justify-center z-30 transition-transform duration-500 ease-in-out">
             <div class="h-full w-6 bg-stone-900/30 absolute left-1/2 -translate-x-1/2"></div>
             <span class="relative z-20 bg-emerald-700 px-5 py-2 rounded-lg font-bold text-xl tracking-wide shadow-md border border-emerald-400/30 group-hover:scale-105 transition-transform">
               🛠️ Stack
             </span>
-			<span class="absolute bottom-3 text-xs text-emerald-200 opacity-75">Click para destapar</span>
+			      <span class="absolute bottom-3 text-xs text-emerald-200 opacity-75">Click para destapar</span>
           </div>
 
-        <!-- CONTENIDO INTERNO -->
-			<div class="p-6 h-full flex flex-col gap-2 text-sm">
-				<p><strong class="text-emerald-400">Front:</strong> React, Astro, Tailwind, TS</p>
-				<p><strong class="text-emerald-400">Back:</strong> Node, Express, Java, Spring</p>
-				<p><strong class="text-emerald-400">Infra:</strong> Redes, VLANs, Linux, MySQL</p>
-				
-				<span class="text-xs text-stone-500 mt-auto">Click para volver a tapar</span>
-			</div>
+          <!-- CONTENIDO INTERNO DE LA CAJA 2 (MAMUSHKA BENTO) -->
+          <div class="p-4 h-full flex flex-col justify-between">
+            <div class="grid grid-rows-3 gap-2 h-[85%]">
+              {stackBento.map((subcaja) => (
+                <div class="sub-bento relative rounded-xl overflow-hidden bg-stone-950 border-2 border-stone-800 flex items-center justify-center cursor-pointer group/sub">
+                  
+                  <div class="sub-lid absolute inset-0 bg-emerald-800/90 hover:bg-emerald-700 flex items-center justify-between px-4 z-10 transition-transform duration-300 ease-in-out">
+                    <span class="font-bold text-xs uppercase tracking-wider text-emerald-100">
+                      🥢 {subcaja.nombre}
+                    </span>
+                    <span class="text-[10px] text-emerald-300/80">Abrir →</span>
+                  </div>
+
+                  <div class="px-3 py-1 flex items-center justify-center">
+                    <img 
+                      src={`https://skillicons.dev/icons?i=${subcaja.icons}`} 
+                      alt={subcaja.nombre} 
+                      class="h-8 object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <span class="text-xs text-stone-500">Click para volver a tapar</span>
+          </div>
         </div>
 
         <!-- CAJA 3: PROYECTOS DE GITHUB (2 columnas) -->
@@ -86,7 +109,7 @@ import "../styles/global.css";
               GITHUB API
             </p>
 			<div class="mt-auto flex">
-				<span class="text-xs text-stone-500">Click para volver a taparr</span>
+				<span class="text-xs text-stone-500">Click para volver a tapar</span>
 			</div>
           </div>
         </div>
@@ -123,12 +146,22 @@ import "../styles/global.css";
     <!-- LÓGICA PARA DESTAPAR LAS CAJAS -->
     <script>
       const boxes = document.querySelectorAll('.bento-item');
+      const subBoxes = document.querySelectorAll('.sub-bento');
       const toggleAllBtn = document.getElementById('toggle-all');
       let allOpen = false;
 
+      // Lógica para las sub-cajas (Mamushkas)
+      subBoxes.forEach((sub) => {
+        sub.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const subLid = sub.querySelector('.sub-lid');
+          subLid?.classList.toggle('translate-x-full');
+        });
+      });
+
+      // Lógica para las cajas principales
       boxes.forEach((box) => {
         box.addEventListener('click', (e) => {
-          // Evita que la caja se cierre si hacés click en un link adentro
           if ((e.target as HTMLElement).tagName === 'A') return;
           
           const lid = box.querySelector('.bento-lid');
@@ -136,15 +169,16 @@ import "../styles/global.css";
         });
       });
 
+      // Botón Destapar Todas (ahora también abre las sub-cajas)
       toggleAllBtn?.addEventListener('click', () => {
         allOpen = !allOpen;
         boxes.forEach((box) => {
           const lid = box.querySelector('.bento-lid');
-          if (allOpen) {
-            lid?.classList.add('-translate-y-full');
-          } else {
-            lid?.classList.remove('-translate-y-full');
-          }
+          allOpen ? lid?.classList.add('-translate-y-full') : lid?.classList.remove('-translate-y-full');
+        });
+        subBoxes.forEach((sub) => {
+          const subLid = sub.querySelector('.sub-lid');
+          allOpen ? subLid?.classList.add('translate-x-full') : subLid?.classList.remove('translate-x-full');
         });
         toggleAllBtn.textContent = allOpen ? 'Tapar todas 🍱' : 'Destapar todas 🥢';
       });
