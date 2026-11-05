@@ -27,7 +27,7 @@ const stackBento = [
       </header>
 
       <!-- GRILLA DE COMPARTIMENTOS -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-65">
+      <div id="bento-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(260px,auto)] md:auto-rows-65">
 
         <!-- CAJA 1: SOBRE MÍ (Ocupa 2 columnas) -->
         <div class="bento-item relative md:col-span-2 rounded-2xl overflow-hidden bg-stone-900 border-4 border-stone-800 cursor-pointer group">
@@ -42,7 +42,7 @@ const stackBento = [
           </div>
 
           <!-- CONTENIDO INTERNO -->
-          <div class="p-6 h-full flex flex-col justify-between">
+          <div class="p-5 md:p-6 h-full flex flex-col justify-between">
             <div>
               <h1 class="text-2xl font-bold text-rose-400">Hola! Soy Lautaro Rodriguez Brown</h1>
               <p class="text-stone-300 mt-2 text-sm leading-relaxed">
