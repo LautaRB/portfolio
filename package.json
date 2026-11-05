@@ -14,6 +14,10 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.3.4",
     "astro": "^7.4.5",
+    "sortablejs": "^1.15.7",
     "tailwindcss": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/sortablejs": "^1.15.9"
   }
 }
