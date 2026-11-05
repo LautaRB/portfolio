@@ -70,8 +70,8 @@ const stackBento = [
               {stackBento.map((subcaja) => (
                 <div class="sub-bento relative rounded-xl overflow-hidden bg-stone-950 border-2 border-stone-800 flex items-center justify-center cursor-pointer group/sub">
                   
-                  <div class="sub-lid absolute inset-0 bg-emerald-800/90 hover:bg-emerald-700 flex items-center justify-between px-4 z-10 transition-transform duration-300 ease-in-out">
-                    <span class="font-bold text-xs uppercase tracking-wider text-emerald-100">
+                  <div class="sub-lid absolute inset-0 bg-emerald-800 hover:bg-emerald-700 flex items-center justify-between px-4 z-10 transition-transform duration-300 ease-in-out">
+                    <span class="font-bold text-xs uppercase tracking-wider text-emerald-500">
                       🥢 {subcaja.nombre}
                     </span>
                     <span class="text-[10px] text-emerald-300/80">Abrir →</span>
@@ -88,6 +88,32 @@ const stackBento = [
               ))}
             </div>
             <span class="text-xs text-stone-500">Click para volver a tapar</span>
+          </div>
+        </div>
+
+        <!-- CAJA 4: CONTACTO (1 columna) -->
+        <div class="bento-item relative rounded-2xl overflow-hidden bg-stone-900 border-4 border-stone-800 cursor-pointer group">
+          <!-- TAPA (Azul Nori / Índigo) -->
+          <div class="bento-lid absolute inset-0 bg-indigo-600 flex flex-col items-center justify-center z-10 transition-transform duration-500 ease-in-out">
+            <div class="h-full w-6 bg-stone-900/30 absolute left-1/2 -translate-x-1/2"></div>
+            <span class="relative z-20 bg-indigo-700 px-5 py-2 rounded-lg font-bold text-xl tracking-wide shadow-md border border-indigo-400/30 group-hover:scale-105 transition-transform">
+              🔗 Contacto
+            </span>
+            <span class="absolute bottom-3 text-xs text-indigo-200 opacity-75">Click para destapar</span>
+          </div>
+
+          <!-- CONTENIDO INTERNO -->
+          <div class="p-6 h-full flex flex-col justify-center items-center gap-3">
+            <a href="mailto:lautanba@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
+              Mandar Email
+            </a>
+            <a href="https://github.com/LautaRB" target="_blank" class="bg-stone-800 hover:bg-stone-700 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
+              Ver GitHub
+            </a>
+			      <a href="../../public/CV.pdf" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
+              CV
+            </a>
+			        <span class="text-xs text-stone-500 mt-auto">Click para volver a tapar</span>
           </div>
         </div>
 
@@ -111,32 +137,6 @@ const stackBento = [
 			<div class="mt-auto flex">
 				<span class="text-xs text-stone-500">Click para volver a tapar</span>
 			</div>
-          </div>
-        </div>
-
-        <!-- CAJA 4: CONTACTO (1 columna) -->
-        <div class="bento-item relative rounded-2xl overflow-hidden bg-stone-900 border-4 border-stone-800 cursor-pointer group">
-          <!-- TAPA (Azul Nori / Índigo) -->
-          <div class="bento-lid absolute inset-0 bg-indigo-600 flex flex-col items-center justify-center z-10 transition-transform duration-500 ease-in-out">
-            <div class="h-full w-6 bg-stone-900/30 absolute left-1/2 -translate-x-1/2"></div>
-            <span class="relative z-20 bg-indigo-700 px-5 py-2 rounded-lg font-bold text-xl tracking-wide shadow-md border border-indigo-400/30 group-hover:scale-105 transition-transform">
-              🔗 Contacto
-            </span>
-			<span class="absolute bottom-3 text-xs text-indigo-200 opacity-75">Click para destapar</span>
-          </div>
-
-          <!-- CONTENIDO INTERNO -->
-          <div class="p-6 h-full flex flex-col justify-center items-center gap-3">
-            <a href="mailto:lautanba@gmail.com" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
-              Mandar Email
-            </a>
-            <a href="https://github.com/" target="_blank" class="bg-stone-800 hover:bg-stone-700 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
-              Ver GitHub
-            </a>
-			<a href="#" class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg text-sm font-medium w-full text-center transition">
-              CV
-            </a>
-			<span class="text-xs text-stone-500 mt-auto">Click para volver a tapar</span>
           </div>
         </div>
 
